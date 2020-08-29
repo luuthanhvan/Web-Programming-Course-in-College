@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Login Page </title>
+		<link rel="stylesheet" type="text/css" href="../styles/style_LoginPage.css">
+		<meta charset="utf8">
+	</head>
+	<body>
+		<div id="container">
+			<!-- <div id="header"> 
+				<h2> Đăng nhập </h2>
+			</div> --> 
+			<!-- end div header -->
+			
+			<div id="content">
+				<form action="./HandleLoginPage.php" method="POST" name="login" onsubmit="return validateForm()">
+					<input id="unameForm" type="text" placeholder="Tên đăng nhập" name="username"/> <br />
+					<p id="showFaultUserName"></p>
+					<input id="pwForm" type="password" placeholder="Mật khẩu" name="password"/> <br />
+					<p id="showFaultPasswd"></p>
+					<input id="lgForm" type="submit" name="login" value="Đăng nhập">
+				</form>
+			</div> <!-- end div content -->
+			
+			<div id="footer">
+				<p> Bạn chưa có tài khoản? </p>
+				<a href="./RegistrationPage2.html"> Vui lòng đăng ký tài khoản ở đây </a>
+			</div> <!-- end div footer -->
+		</div> <!-- end div container -->
+	</body>
+	<script>
+		function validateForm(){
+			var username = document.forms["login"]["username"].value;
+			var password = document.forms["login"]["password"].value;
+			// alert(username);
+			// alert(password);
+			var checked = false;
+			if(username == null || username == ""){
+				document.getElementById("showFaultUserName").innerHTML = "* Tên đăng nhập không được bỏ trống";
+				checked = true;
+			}
+			if(password == null || password == ""){
+				document.getElementById("showFaultPasswd").innerHTML = "* Mật khẩu không được bỏ trống";
+				checked = true;
+			}
+			return !checked;
+		} 
+	</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Login Page </title>
+		<link rel="stylesheet" type="text/css" href="../styles/style_LoginPage.css">
+		<meta charset="utf8">
+	</head>
+	
+	<body>
+		<div id="container">			
+			<div id="content">
+				<form name="login" action="./HandleLoginPage.php" method="POST">
+					<input id="unameForm" type="text" placeholder="Tên đăng nhập" name="username"/> <br />
+					<input id="pwForm" type="password" placeholder="Mật khẩu" name="password"/> <br />
+					<input id="lgForm" type="submit" name="login" value="Đăng nhập">
+				</form>
+			</div> <!-- end div content -->
+			
+			<div id="footer">
+				<p> Bạn chưa có tài khoản? </p>
+				<a href="./RegistrationPage2.html"> Vui lòng đăng ký tài khoản ở đây </a>
+			</div> <!-- end div footer -->
+		</div> <!-- end div container -->
+	</body>
+</html>

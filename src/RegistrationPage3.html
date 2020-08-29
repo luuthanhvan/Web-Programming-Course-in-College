@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Registration Page </title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../styles/style_RegistrationPage2.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="fixedButton">
+				<a href="./LoginPage.html"> Đăng nhập </a>
+			</div>
+			<div id="header1">
+				<h1> Đăng ký tài khoản mới </h1>
+			</div> <!-- end div header1 -->
+
+			<div id="header2">
+				<p> * Vui lòng điền đầy đủ thông tin bên dưới để đăng ký tài khoản mới </p>
+			</div> <!-- end div header2 -->
+
+			<div id="content">
+				<table>
+					<form name="regisForm" action="./HandleRegistration.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+						<tr>
+							<td> Tên đăng nhập </td>
+							<td> 
+								<input class="inputTextForm" type="text" name="username">
+								<p id="showFaultUsername"></p>
+								<p id="invalidUsername"></p>
+							</td>
+						</tr>
+						<tr>
+							<td> Mật khẩu </td>
+							<td> 
+								<input class="inputTextForm" type="password" name="password1">
+								<p id="showFaultPasswd1"></p>
+								<p id="invalidPasswd"></p>
+							</td>
+						</tr>
+						<tr>
+							<td> Gõ lại mật khẩu </td>
+							<td> 
+								<input class="inputTextForm" type="password" name="password2">
+								<p id="showFaultPasswd2"></p>
+								<p id="matchedPasswd"></p>
+							</td>
+						</tr>
+						<tr>
+							<td> Hình ảnh đại diện </td>
+							<td> 
+								<input id="inputFileForm" type="file" name="avatar">
+								<p id="showFaultFileInput"></p>
+							</td>
+						</tr>
+						<tr>
+							<td> Giới tính </td>
+							<td id="inputRadioForm">
+								<span id="radio1">
+									<input type="radio" name="gender" value="Nam" checked="checked">
+									<label> Nam </label>
+								</span>
+								<span id="radio2">
+									<input type="radio" name="gender" value="Nữ"> 
+									<label> Nữ  </label>
+								</span>
+								<span id="radio3">
+									<input type="radio" name="gender" value="Khác"> 
+									<label> Khác  </label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td> Nghề nghiệp </td>
+							<td id="inputSelectOptionForm">
+								<select name="jobs">
+									<option value="Học sinh"> Học sinh </option>
+									<option value="Sinh viên"> Sinh viên </option>
+									<option value="Giáo viên"> Giáo viên </option>
+									<option value="Khác"> Khác </option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td> Sở thích </td>
+							<td id="inputCheckboxForm">
+								<span>
+									<input type="checkbox" name="favor[]" value="Thể thao"> 
+									<label> Thể thao </label>
+								</span>
+								<span>
+									<input type="checkbox" name="favor[]" value="Du lịch"> 
+									<label> Du lịch </label>
+								</span>
+								<span>
+									<input type="checkbox" name="favor[]" value="Âm nhạc"> 
+									<label> Âm nhạc </label>
+								</span>
+								<span>
+									<input type="checkbox" name="favor[]" value="Thời trang"> 
+									<label> Thời trang </label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td id="inputSubmitResetForm">
+								<span>
+									<input type="submit" name="submit" value="Đăng ký">
+								</span>
+								<span>
+									<input type="reset" name="reset" value="Làm lại">
+								</span>
+							</td>
+						</tr>
+					</form>
+				</table>
+			</div> <!-- end div content -->
+		</div> <!-- end div containter -->
+		<div id="footer">
+				<p>Liên hệ: Lưu Thanh Vân (B1709639)</p>
+		</div> <!-- end div footer -->
+	</body>
+	<script>
+		function isImageFile(fileInput){
+			var acceptFile = ["png", "jpeg", "jpg", "gif"];
+			var fileType = fileInput.substring(fileInput.lastIndexOf(".") + 1, fileInput.length);
+			
+			if(!acceptFile.includes(fileType)) 
+				return false;
+			return true;
+		}
+
+		function validateForm(){
+			var username = document.forms["regisForm"]["username"].value;
+			var password1 = document.forms["regisForm"]["password1"].value;
+			var password2 = document.forms["regisForm"]["password2"].value;
+			var fileInput = document.forms["regisForm"]["avatar"].value;
+
+			var checked = false;
+			if(username.length == 0){
+				document.getElementById("showFaultUsername").innerHTML = "Trường tên đăng nhập không được bỏ trống.";
+				checked = true;
+			}
+			if(password1.length == 0){
+				document.getElementById("showFaultPasswd1").innerHTML = "Trường mật khẩu không được bỏ trống.";
+				checked = true;
+			}
+			if(password2.length == 0){
+				document.getElementById("showFaultPasswd2").innerHTML = "Trường gõ lại mật khẩu không được bỏ trống.";
+				checked = true;
+			}
+			
+
+			var reUsername = /^[A-Za-z][A-Za-z0-9]{5,14}$/;
+            var rePassword = /^[A-Za-z0-9]{6,15}$/;
+			
+			if(!username.match(reUsername)){
+				document.getElementById("invalidUsername").innerHTML = "Tên đăng nhập: bắt đầu phải là chữ cái, theo sau có thể là chữ cái hoặc là số; dài từ 6 đến 15 ký tự.";
+				checked = true;
+			}
+			if(!password1.match(rePassword)){
+				document.getElementById("invalidPasswd").innerHTML = "Mật khẩu: phải có cả chữ cái và số; không được có ký tự khác ngoài chữ cái và số; dài từ 6 đến 15 ký tự.";
+				checked = true;
+			}
+			if(password1 != password2){
+				document.getElementById("matchedPasswd").innerHTML = "Hai mật khẩu phải khớp nhau.";
+				checked = true;
+			}
+			if(isImageFile){
+				document.getElementById("showFaultFileInput").innerHTML = "Chỉ hỗ trợ các loại file có phần mở rộng là .png, .jpeg, .jpg và .gif";
+				checked = true;
+			}
+			return !checked;
+		}
+	</script>
+</html>

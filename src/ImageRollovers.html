@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title> Image Rollovers </title>
+		<meta charset="utf-8"/>
+		<style>
+			#slideshow {
+				/* border: 1px solid yellow; */
+			}
+			.myImages { 
+				display: none; /* hide all images */
+				width: 50%;
+				height: 500px;
+				/* border: 1px solid red; */
+				margin: auto;
+			}
+			#footer {
+            	margin-top: 20px;
+            	clear: left;
+            	text-align: center;
+            	font-size: 16px;
+            	padding: 20px;
+            	border-top: 2px dotted yellow;
+            }
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="content">
+				<div id="slideshow">
+					<img class="myImages" src="../images/hp.jpg"/>
+					<img class="myImages" src="../images/dell.jpg"/>
+					<img class="myImages" src="../images/acer.jpg"/>
+					<img class="myImages" src="../images/asus.jpg"/>
+				</div>
+				
+				<div id="vertical-center"> 
+					<button type="button" onclick="changeSlide(-1)"> Previous </button>
+					<button type="button" onclick="changeSlide(1)"> Next </button>
+				</div>
+
+				<form> 
+					<select id="laptopSel" onchange="changeSlide(1)"> 
+						<option> HP </option>
+						<option> DELL </option>
+						<option> ASER </option>
+						<option> ASUS </option>
+					</select>
+				</form>
+			</div> <!-- end div content -->
+			<div id="footer"> 
+				<p> Liên hệ: Lưu Thanh Vân (B1709639). <br/> Email: vanb1709639@student.ctu.edu.vn </p>
+			</div> <!-- end div footer -->
+		</div> <!-- end div container -->
+		<script>
+			slideIndex = 1;
+			selected = 0;
+			showSlide(slideIndex);
+			
+			function changeSlide(n){
+				slideIndex += n;
+				selected += n;
+				showSlide(slideIndex);
+				chooseSlide(selected);
+			}
+			
+			function chooseSlide(index){
+				var lapSel = document.getElementById("laptopSel");
+				if(index > lapSel.length-1) selected = 0;
+				if(index < 0) selected = lapSel.length-1;
+				document.getElementById("laptopSel").selectedIndex = selected;
+			}
+			
+			function showSlide(n){
+				var images = document.getElementsByClassName("myImages");
+				if(n > images.length) 
+					slideIndex = 1;
+				if(n < 1)
+					slideIndex = images.length;
+				
+				for(var i = 0; i < images.length; i++)
+					images[i].style.display = "none";
+				images[slideIndex - 1].style.display = "block";			
+			}
+			
+		</script>
+	</body>
+</html>

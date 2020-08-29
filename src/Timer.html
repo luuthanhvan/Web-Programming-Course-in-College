@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Timer </title>
+		<meta charset="utf-8"/>
+		<base target="_blank"/>
+		<style>
+			.laptopImages{
+				display: none;
+			}
+			#container {
+				margin: 0 auto;
+				width: 800px;
+				height: 800px;
+			}
+			#autoSlideshow img{
+				width: 600px;
+				height: 500px;
+			}
+			div div a {
+				display: block;
+			}
+			#footer {
+				margin-top: 20px;
+				clear: left;
+				text-align: center;
+				font-size: 16px;
+				padding: 20px;
+				border-top: 2px dotted yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="content">
+				<div id="autoSlideshow">
+					<div onmouseover="over()" onmouseout="out()">
+						<a href="https://www8.hp.com/us/en/home.html"><img class="laptopImages" src="../images/hp.jpg"/></a>
+					</div>
+					<div onmouseover="over()" onmouseout="out()">
+						<a href="https://www1.ap.dell.com"><img class="laptopImages" src="../images/dell.jpg"/></a>
+					</div>
+					<div onmouseover="over()" onmouseout="out()">
+						<a href="https://www.acer.com/ac/en/US/content/home"><img class="laptopImages" src="../images/acer.jpg"/></a>
+					</div>
+					<div onmouseover="over()" onmouseout="out()">
+						<a href="https://www.asus.com/us/"><img class="laptopImages" src="../images/asus.jpg"/></a>
+					</div>
+				</div> <!-- end div autoSlideshow -->
+				<script>
+					var slideIndex = 0;
+					var time;
+					carousel(); // execute function
+
+					function carousel(){
+						var images = document.getElementsByClassName("laptopImages");
+						for(var i = 0; i < images.length; i++)
+							images[i].style.display = "none"; // hide all images
+						slideIndex++;
+						if(slideIndex > images.length)
+							slideIndex = 1;
+						images[slideIndex-1].style.display = "block"; // show image
+						time = setTimeout(carousel, 2000); // setTimeout for image will change after 2000 milliseconds
+					}
+
+					function over(){
+						// console.log("over");
+						// console.log("time = " + time);
+						clearTimeout(time); // clearTimeout when user hover on the image
+					}
+
+					function out(){
+						// console.log("out");
+						time = setTimeout(carousel, 2000); // setTimeout when user move out of the image			
+					}
+				</script>
+			</div> <!-- end div content -->
+			<div id="footer">
+				<p> Liên hệ: Lưu Thanh Vân (B1709639). <br/> Email: vanb1709639@student.ctu.edu.vn </p>
+			</div> <!-- end div footer -->
+		</div> <!-- end div container -->
+	</body>
+</html>

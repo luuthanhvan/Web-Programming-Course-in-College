@@ -1,0 +1,60 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	width: 1028px;
+	margin: 0 auto;
+}
+
+#caption h1{
+	text-align: center;
+	padding: 10px;
+}
+
+#table table {
+	display: block;
+}
+			
+th, td {
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: center;
+}
+
+#header {
+	font-size: 18px;
+	font-weight: bold;
+	color: purple;
+}
+
+.session {
+	font-weight: bold;
+}
+
+#table .datacell {
+	color: red;
+	font-weight: bold;
+}
+
+#table tr td:hover {
+	background-color: yellow;
+}
+
+#table .datacell:hover {
+	background-color: lightblue;
+}
+
+#table .session:hover {
+	background-color: white;
+}
+
+#footer {
+	margin-top: 20px;
+	clear: left;
+	text-align: center;
+	font-size: 16px;
+	padding: 20px;
+	border-top: 2px dotted yellow;
+}

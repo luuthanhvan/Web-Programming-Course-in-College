@@ -1,0 +1,135 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: linear-gradient(to top left, #05b5af, #056cb5);
+	background-attachment: fixed;
+}
+
+#fixedButton {
+	position: fixed;
+	top: 0;	
+	right: 0;
+	width: 150px;
+	margin-top: 10px;
+	margin-right: 10px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 18px 0 rgba(0, 0, 0, 0.19);
+}
+
+#fixedButton a {
+	display: block;
+	color: black;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	background-color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 10px
+}
+
+#container {
+	width: 700px;
+	margin: auto;
+	top: 20px;
+	position: relative;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#header1 {
+	text-align: center;
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+
+#header2 {
+	text-align: center;
+	margin-bottom: 10px;
+	font-style: italic;
+	font-size: 16px;
+}
+
+#content {
+	padding-bottom: 10px;
+}
+
+#content p{
+	color: red;
+	font-style: italic;
+}
+
+#content table{
+	margin: auto;
+	width: 600px;
+}
+
+td {
+	font-size: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/*border: 1px solid green;*/
+}
+
+.inputTextForm {
+	width: 220px;
+	height: 30px;
+	padding: 5px;
+	border-radius: 3px;
+	font-size: 20px;
+	background-color: #e1e7eb;
+	border: none;
+}
+
+#inputFileForm {
+	font-size: 16px;
+	padding: 10px;
+}
+
+#inputRadioForm span {
+	margin-right: 50px;
+	font-size: 20px;
+}
+
+#inputRadioForm label {
+	margin-left: 5px;
+}
+
+#inputSelectOptionForm select{
+	font-size: 16px;
+	width: 100px;
+	padding: 5px;
+}
+
+#inputCheckboxForm span {
+	margin-right: 10px;
+}
+
+#inputCheckboxForm label{
+	margin-left: 10px;	
+}
+
+#inputSubmitResetForm span input{
+	font-size: 18px;
+	width: 100px;
+	margin-top: 20px;
+	margin-right: 20px;
+	border-radius: 5px;
+	background-color: #ed2445;
+	color: white;
+	padding: 5px;
+	font-weight: bold;
+	float: right;
+	border: none;
+}
+
+#footer {
+	margin-top: 40px;
+	text-align: center;
+	font-size: 18px;
+	font-style: italic;
+}

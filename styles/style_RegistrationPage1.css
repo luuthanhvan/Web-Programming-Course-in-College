@@ -1,0 +1,26 @@
+tr, th, td {
+	border-width: 0px;
+	padding-right: 20px;
+}
+
+caption {
+	margin-top: 20px;
+}
+
+#container{
+	border: 1px solid black;
+	margin: 2px;
+	padding: 5px;
+	border-spacing: 2px;
+	background-color: lightgrey;
+}
+
+#cap1 {
+	color: red;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#cap2 {
+	margin-bottom: 10px;
+}
